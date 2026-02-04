@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webinar 2: IA para humanizar ecosistemas educativos - Dr. Pablo Carranza</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Webinar 2: IA para humanizar ecosistemas educativos - Dr. Pablo Carranza</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
 
         * {
             margin: 0;
@@ -53,7 +54,7 @@ body {
         
         header {
             background: var(--card);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 24px rgba(2,6,23,.06);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -135,7 +136,7 @@ body {
         .hero {
             background: var(--grad-hero);
             color: white;
-            padding: 4rem 2rem;
+            padding: clamp(3rem, 5vw, 4.5rem) 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -183,16 +184,17 @@ body {
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 3.2vw + 1rem, 3.2rem);
             font-weight: 800;
             margin-bottom: 1rem;
-            line-height: 1.2;
+            line-height: 1.15;
         }
 
         .hero h1 .highlight {
             color: #fbbf24;
             display: block;
-            font-size: 3.5rem;
+            font-size: clamp(2.2rem, 3.8vw + 1rem, 3.8rem);
+            letter-spacing: -0.02em;
         }
 
         .hero-subtitle {
@@ -251,6 +253,8 @@ body {
             cursor: pointer;
             border: none;
         }
+.btn:focus-visible{ outline: 3px solid rgba(251,191,36,.55); outline-offset: 3px; }
+
 
         .btn-primary {
             background: #fbbf24;
@@ -788,313 +792,491 @@ body {
             *{ scroll-behavior:auto !important; }
             .btn, .detail-card, .audience-card, .highlight-card, .publication-card{ transition:none !important; }
         }
+
+
+/* ===== Pro polish: top band + icon system ===== */
+.top-band{
+  height: 10px;
+  background: linear-gradient(90deg, rgba(30,64,175,1) 0%, rgba(37,99,235,1) 40%, rgba(96,165,250,1) 70%, rgba(251,191,36,1) 100%);
+  box-shadow: 0 8px 22px rgba(2,6,23,.10);
+}
+
+.icon{
+  display:inline-block;
+  vertical-align:middle;
+  fill:none;
+  stroke: currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.icon-muted{ color: rgba(255,255,255,.85); }
+.icon-invert{ color: rgba(255,255,255,.95); }
+
+/* ===== Hero 2-column (más presencia) ===== */
+.hero{
+  padding: clamp(3.25rem, 5vw, 5rem) 2rem;
+}
+.hero-content{
+  max-width: 1100px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+  gap: 2.25rem;
+  align-items: center;
+}
+.hero h1{
+  font-size: clamp(2.05rem, 3.8vw, 3.15rem);
+}
+.hero h1 .highlight{
+  font-size: clamp(2.25rem, 4.2vw, 3.55rem);
+}
+.event-date{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+}
+
+.hero-panel{
+  width:100%;
+}
+.hero-panel-inner{
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 18px;
+  padding: 1.25rem;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 16px 44px rgba(2,6,23,.18);
+}
+.hero-speaker{
+  display:flex;
+  gap:.9rem;
+  align-items:center;
+  padding-bottom: .9rem;
+  margin-bottom: .9rem;
+  border-bottom: 1px solid rgba(255,255,255,.18);
+}
+.hero-speaker-photo{
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,.25);
+  box-shadow: 0 10px 22px rgba(2,6,23,.22);
+}
+.hero-speaker-name{ font-weight: 700; letter-spacing: .2px; }
+.hero-speaker-role{ font-size: .92rem; opacity:.92; }
+
+.hero-facts{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:.75rem;
+}
+.hero-facts li{
+  display:flex;
+  gap:.65rem;
+  align-items:flex-start;
+}
+.fact-text{ display:flex; flex-direction:column; gap:.1rem; }
+.fact-label{
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  opacity: .82;
+}
+.fact-value{
+  font-size: .95rem;
+  font-weight: 600;
+}
+.fact-value a{
+  color: rgba(255,255,255,.95);
+  text-decoration: underline;
+  text-decoration-color: rgba(251,191,36,.75);
+  text-underline-offset: 4px;
+}
+
+.hero-panel-actions{
+  display:flex;
+  gap:.75rem;
+  flex-wrap:wrap;
+  margin-top: 1.1rem;
+}
+.btn-ghost{
+  background: rgba(255,255,255,.12);
+  color: white;
+  border: 1px solid rgba(255,255,255,.18);
+}
+.btn-ghost:hover{ background: rgba(255,255,255,.18); transform: translateY(-1px); }
+
+.btn-outline{
+  background: rgba(2,6,23,.10);
+  color: #ffffff;
+  border: 1px solid rgba(251,191,36,.92);
+  box-shadow: 0 10px 24px rgba(2,6,23,.18);
+}
+.btn-outline:hover{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(251,191,36,1);
+  box-shadow: 0 14px 32px rgba(2,6,23,.22);
+  transform: translateY(-1px);
+}
+
+.btn-primary, .btn-secondary, .btn-ghost, .btn-outline{
+  gap:.6rem;
+}
+.btn-primary svg, .btn-secondary svg, .btn-ghost svg, .btn-outline svg{
+  flex-shrink:0;
+}
+
+/* ===== Highlight cards icons ===== */
+.highlight-card h4{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: .75rem;
+}
+.card-icon{
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  display:grid;
+  place-items:center;
+  background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(251,191,36,.14));
+  border: 1px solid rgba(37,99,235,.18);
+}
+.card-title{ flex: 1; }
+
+/* ===== Responsive refinements ===== */
+@media (max-width: 980px){
+  .hero-grid{
+    grid-template-columns: 1fr;
+  }
+  .hero-panel-inner{
+    max-width: 720px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 520px){
+  .hero-panel-actions .btn{
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.hero-copy{ text-align:left; }
+@media (max-width: 980px){ .hero-copy{ text-align:center; } }
+
+.hero-copy .cta-buttons{ justify-content:flex-start; }
+@media (max-width: 980px){ .hero-copy .cta-buttons{ justify-content:center; } }
+
+
+.header-home{ color: inherit; text-decoration:none; display:inline-block; }
+.header-home:focus-visible{ outline:3px solid rgba(251,191,36,.9); outline-offset:4px; border-radius:10px; }
+
+/* v6 editorial panel refinements */
+.hero-panel-inner{
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.20);
+}
+.hero-facts{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-top: .15rem;
+  border-top: 1px solid rgba(255,255,255,.16);
+}
+.hero-facts li{
+  display:flex;
+  align-items:flex-start;
+  gap: .65rem;
+  padding: .85rem .65rem;
+  border-bottom: 1px solid rgba(255,255,255,.14);
+}
+.hero-facts li:nth-child(odd):not(.span-2){
+  border-right: 1px solid rgba(255,255,255,.10);
+}
+.hero-facts li.span-2{
+  grid-column: 1 / -1;
+}
+.fact-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.25;
+}
+.fact-label{ opacity:.80; font-size:.78rem; letter-spacing:.02em; text-transform:uppercase; }
+.fact-value{ font-weight:650; font-size:1rem; }
+.hero-panel-actions .btn-primary,
+.hero-panel-actions .btn-outline{
+  flex: 1 1 12rem;
+  justify-content:center;
+}
+
+@media (max-width: 560px){
+  .hero-facts{ grid-template-columns: 1fr; }
+  .hero-facts li:nth-child(odd){ border-right: none; }
+  .hero-facts li.span-2{ grid-column: auto; }
+}
+
 </style>
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <div class="logo-section">
-                <img src="./logo-circular-CauUJ5BE.png" alt="Logo Diplomatura IA" class="logo-diplo">
-                <div class="header-title">Webinar IA<br>Universidad de Mendoza</div>
-            </div>
-            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Abrir menú">
-                ☰
-            </button>
-            <nav id="primary-nav" class="nav">
-                <button type="button" class="nav-link" onclick="scrollToSection('evento')">Evento</button>
-                <button type="button" class="nav-link" onclick="scrollToSection('ponente')">Ponente</button>
-                <button type="button" class="nav-link" onclick="scrollToSection('diplomatura')">Diplomatura</button>
-            </nav>
-            <div class="um-wrap">
-                <img src="./isologoUMPosFC-61-CAustsP3.png" alt="Universidad de Mendoza" class="logo-um">
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="event-date">📅 2 de Marzo 2026</div>
-            <h1>
-                Webinar - Taller:<br>
-                <span class="highlight">Casos reales, chatbot de regreso al aula y análisis de datos educativos</span>
-            </h1>
-            <p class="hero-subtitle">Únete al <strong>Dr. Pablo Carranza</strong> en una exploración práctica sobre cómo la Inteligencia Artificial puede humanizar los ecosistemas educativos</p>
-            
-            <div class="countdown" id="countdown">
-                <div class="countdown-item">
-                    <span class="countdown-number" id="days">00</span>
-                    <span class="countdown-label">Días</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="hours">00</span>
-                    <span class="countdown-label">Horas</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="minutes">00</span>
-                    <span class="countdown-label">Minutos</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="seconds">00</span>
-                    <span class="countdown-label">Segundos</span>
-                </div>
-            </div>
-
-            <div class="cta-buttons">
-                <a href="https://form.jotform.com/260326441142042" target="_blank" class="btn btn-primary">
-                    🔗 INSCRIBIRME
-                </a>
-                <button onclick="scrollToSection('evento')" class="btn btn-secondary">
-                    📋 Más Información
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Event Details -->
-    <section id="evento" class="event-details">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Detalles del Evento</h2>
-                <p class="section-subtitle">Un encuentro práctico e imprescindible para educadores que buscan integrar la IA de manera ética y humanizadora</p>
-            </div>
-
-            <div class="event-grid">
-                <div class="event-card">
-                    <div class="event-icon icon-blue">
-                        📅
-                    </div>
-                    <h3>Fecha</h3>
-                    <p>Lunes</p>
-                    <p class="main-text">2 Mar 2026</p>
-                </div>
-
-                <div class="event-card">
-                    <div class="event-icon icon-orange">
-                        🕐
-                    </div>
-                    <h3>Horario</h3>
-                    <p class="main-text">19:00</p>
-                    <p class="sub-text">Hora Argentina</p>
-                </div>
-
-                <div class="event-card">
-                    <div class="event-icon icon-green">
-                        👥
-                    </div>
-                    <h3>Modalidad</h3>
-                    <p class="main-text">Virtual</p>
-                    <p class="sub-text">Google Meet</p>
-                </div>
-
-                <div class="event-card">
-                    <div class="event-icon icon-purple">
-                        🎓
-                    </div>
-                    <h3>Acceso</h3>
-                    <p class="main-text">Gratuito</p>
-                    <p class="sub-text">Abierto a todos</p>
-                </div>
-
-                <div class="event-card certification">
-                    <div class="event-icon icon-yellow">
-                        🏆
-                    </div>
-                    <h3>Certificación</h3>
-                    <p class="main-text">Incluida</p>
-                    <p class="sub-text">Participación</p>
-                </div>
-            </div>
-
-            <div class="event-buttons">
-                <a href="https://bit.ly/diploIA" target="_blank" class="btn btn-primary">
-                    🔗 Acceder al Webinar
-                </a>
-                <button onclick="addToGoogleCalendar()" class="btn btn-secondary">
-                    📅 Agregar a Google Calendar
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Speaker Section -->
-    <section id="ponente" class="speaker-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Sobre el Ponente</h2>
-                <p class="section-subtitle">Un especialista reconocido en educación, tecnología e inteligencia artificial</p>
-            </div>
-
-            <div class="speaker-content">
-                <div class="speaker-image-container">
-                    <img src="./Pablocarranza.avif" alt="Dr. Pablo Carranza" class="speaker-image">
-                    <h3 class="speaker-name">Dr. Pablo Carranza</h3>
-                    <p class="speaker-title">Universidad Nacional de Río Negro</p>
-                </div>
-
-                <div class="speaker-info">
-                    <p class="speaker-bio">
+<body id="top">
+<div aria-hidden="true" class="top-band"></div>
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"><defs><symbol id="i-calendar" viewbox="0 0 24 24"><path d="M7 2v2M17 2v2M3 7h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path></symbol><symbol id="i-link" viewbox="0 0 24 24"><path d="M10 13a5 5 0 0 1 0-7l1.5-1.5a5 5 0 0 1 7 7L17 13M14 11a5 5 0 0 1 0 7L12.5 19.5a5 5 0 1 1-7-7L7 11"></path></symbol><symbol id="i-info" viewbox="0 0 24 24"><path d="M12 18h.01M12 10v4M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"></path></symbol><symbol id="i-clock" viewbox="0 0 24 24"><path d="M12 6v6l4 2M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"></path></symbol><symbol id="i-users" viewbox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path></symbol><symbol id="i-book" viewbox="0 0 24 24"><path d="M4 19a2 2 0 0 0 2 2h14V5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2zM6 3v18"></path></symbol><symbol id="i-award" viewbox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"></path></symbol><symbol id="i-mail" viewbox="0 0 24 24"><path d="M4 4h16v16H4z M4 6l8 6 8-6"></path></symbol><symbol id="i-menu" viewbox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"></path></symbol><symbol id="i-x" viewbox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"></path></symbol></defs></svg>
+<!-- Header -->
+<header>
+<div class="header-content">
+<div class="logo-section">
+<img alt="Logo Diplomatura IA" class="logo-diplo" src="./logo-circular-CauUJ5BE.png"/>
+<a class="header-title header-home" href="#top">Webinar IA<br/>Universidad de Mendoza</a>
+</div>
+<button aria-controls="primary-nav" aria-expanded="false" aria-label="Abrir menú" class="nav-toggle" type="button"><svg aria-hidden="true" class="icon icon-nav" focusable="false" height="22" viewbox="0 0 24 24" width="22"><use href="#i-menu"></use></svg></button>
+<nav class="nav" id="primary-nav">
+<button class="nav-link" onclick="scrollToSection('evento')" type="button">Evento</button>
+<button class="nav-link" onclick="scrollToSection('ponente')" type="button">Ponente</button>
+<button class="nav-link" onclick="scrollToSection('diplomatura')" type="button">Diplomatura</button>
+</nav>
+<div class="um-wrap">
+<img alt="Universidad de Mendoza" class="logo-um" src="./isologoUMPosFC-61-CAustsP3.png"/>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero">
+<div class="hero-content">
+<div class="hero-grid"><div class="hero-copy">
+<div class="event-date"><svg aria-hidden="true" class="icon icon-invert" height="18" viewbox="0 0 24 24" width="18"><use href="#i-calendar"></use></svg>2 de marzo de 2026</div>
+<h1>
+                Webinar - Taller:<br/>
+<span class="highlight">Casos reales, chatbot de regreso al aula y análisis de datos educativos</span>
+</h1>
+<p class="hero-subtitle">Únete al <strong>Dr. Pablo Carranza</strong> en una exploración práctica sobre cómo la Inteligencia Artificial puede humanizar los ecosistemas educativos</p>
+<div class="countdown" id="countdown">
+<div class="countdown-item">
+<span class="countdown-number" id="days">00</span>
+<span class="countdown-label">Días</span>
+</div>
+<div class="countdown-item">
+<span class="countdown-number" id="hours">00</span>
+<span class="countdown-label">Horas</span>
+</div>
+<div class="countdown-item">
+<span class="countdown-number" id="minutes">00</span>
+<span class="countdown-label">Minutos</span>
+</div>
+<div class="countdown-item">
+<span class="countdown-number" id="seconds">00</span>
+<span class="countdown-label">Segundos</span>
+</div>
+</div>
+<div class="cta-buttons">
+<a class="btn btn-primary" href="https://form.jotform.com/260326441142042" target="_blank"><svg aria-hidden="true" class="icon" height="18" viewbox="0 0 24 24" width="18"><use href="#i-link"></use></svg>Inscribirme</a>
+<button class="btn btn-secondary" onclick="scrollToSection('evento')"><svg aria-hidden="true" class="icon" height="18" viewbox="0 0 24 24" width="18"><use href="#i-info"></use></svg>Más información</button>
+</div>
+</div><aside aria-label="Información clave del webinar" class="hero-panel"><div class="hero-panel-inner"><div class="hero-speaker"><img alt="Dr. Pablo Carranza" class="hero-speaker-photo" decoding="async" loading="lazy" src="./Pablocarranza.avif"/><div class="hero-speaker-meta"><div class="hero-speaker-name">Dr. Pablo Carranza</div><div class="hero-speaker-role">Universidad Nacional de Río Negro</div></div></div><ul class="hero-facts"><li><svg aria-hidden="true" class="icon icon-muted" focusable="false" height="18" viewbox="0 0 24 24" width="18"><use href="#i-calendar"></use></svg><div class="fact-text"><span class="fact-label">Fecha</span><span class="fact-value">2 de marzo de 2026</span></div></li><li><svg aria-hidden="true" class="icon icon-muted" focusable="false" height="18" viewbox="0 0 24 24" width="18"><use href="#i-clock"></use></svg><div class="fact-text"><span class="fact-label">Horario</span><span class="fact-value">19:00 (Argentina)</span></div></li><li class="span-2"><svg aria-hidden="true" class="icon icon-muted" focusable="false" height="18" viewbox="0 0 24 24" width="18"><use href="#i-users"></use></svg><div class="fact-text"><span class="fact-label">Modalidad</span><span class="fact-value">Encuentro sincrónico + taller</span></div></li></ul><div class="hero-panel-actions"><a class="btn btn-primary" href="https://form.jotform.com/260326441142042" rel="noopener" target="_blank"><svg aria-hidden="true" class="icon" height="18" viewbox="0 0 24 24" width="18"><use href="#i-link"></use></svg>Inscribirse</a><button class="btn btn-outline" onclick="addToGoogleCalendar()" type="button"><svg aria-hidden="true" class="icon" height="18" viewbox="0 0 24 24" width="18"><use href="#i-calendar"></use></svg>Agregar al calendario</button></div></div></aside></div>
+</div>
+</section>
+<!-- Event Details -->
+<section class="event-details" id="evento">
+<div class="container">
+<div class="section-header">
+<h2 class="section-title">Detalles del Evento</h2>
+<p class="section-subtitle">Un encuentro práctico e imprescindible para educadores que buscan integrar la IA de manera ética y humanizadora</p>
+</div>
+<div class="event-grid">
+<div class="event-card">
+<div class="event-icon icon-blue"><svg aria-hidden="true" class="icon" height="40" viewbox="0 0 24 24" width="40"><use href="#i-calendar"></use></svg></div>
+<h3>Fecha</h3>
+<p>Lunes</p>
+<p class="main-text">2 Mar 2026</p>
+</div>
+<div class="event-card">
+<div class="event-icon icon-orange"><svg aria-hidden="true" class="icon" height="40" viewbox="0 0 24 24" width="40"><use href="#i-clock"></use></svg></div>
+<h3>Horario</h3>
+<p class="main-text">19:00</p>
+<p class="sub-text">Hora Argentina</p>
+</div>
+<div class="event-card">
+<div class="event-icon icon-green"><svg aria-hidden="true" class="icon" height="40" viewbox="0 0 24 24" width="40"><use href="#i-users"></use></svg></div>
+<h3>Modalidad</h3>
+<p class="main-text">Virtual</p>
+<p class="sub-text">Google Meet</p>
+</div>
+<div class="event-card">
+<div class="event-icon icon-purple"><svg aria-hidden="true" class="icon" height="40" viewbox="0 0 24 24" width="40"><use href="#i-book"></use></svg></div>
+<h3>Acceso</h3>
+<p class="main-text">Gratuito</p>
+<p class="sub-text">Abierto a todos</p>
+</div>
+<div class="event-card certification">
+<div class="event-icon icon-yellow"><svg aria-hidden="true" class="icon" height="40" viewbox="0 0 24 24" width="40"><use href="#i-award"></use></svg></div>
+<h3>Certificación</h3>
+<p class="main-text">Incluida</p>
+<p class="sub-text">Participación</p>
+</div>
+</div>
+<div class="event-buttons">
+<a class="btn btn-primary" href="https://bit.ly/diploIA" target="_blank"><svg aria-hidden="true" class="icon" height="18" viewbox="0 0 24 24" width="18"><use href="#i-link"></use></svg>Inscribirse al webinar</a>
+<button class="btn btn-secondary" onclick="addToGoogleCalendar()"><svg aria-hidden="true" class="icon" height="18" viewbox="0 0 24 24" width="18"><use href="#i-calendar"></use></svg>Agregar al calendario</button>
+</div>
+</div>
+</section>
+<!-- Speaker Section -->
+<section class="speaker-section" id="ponente">
+<div class="container">
+<div class="section-header">
+<h2 class="section-title">Sobre el Ponente</h2>
+<p class="section-subtitle">Un especialista reconocido en educación, tecnología e inteligencia artificial</p>
+</div>
+<div class="speaker-content">
+<div class="speaker-image-container">
+<img alt="Dr. Pablo Carranza" class="speaker-image" src="./Pablocarranza.avif"/>
+<h3 class="speaker-name">Dr. Pablo Carranza</h3>
+<p class="speaker-title">Universidad Nacional de Río Negro</p>
+</div>
+<div class="speaker-info">
+<p class="speaker-bio">
                         El <strong>Dr. Pablo Fabián Carranza</strong> es Doctor en Didáctica de la Matemática y la Estadística por la Université Denis Diderot de París (Francia), con mención Muy Honorable. Actualmente se desempeña como Profesor de Inteligencia Artificial en la Universidad Nacional de Buenos Aires (UBA) y como Profesor Investigador en la Universidad Nacional de Río Negro (UNRN).
                     </p>
-                    <p class="speaker-bio">
+<p class="speaker-bio">
                         Fue <strong>Director Nacional del área Educación de la Sociedad Argentina de Inteligencia Artificial (SAIA) desde 2023 hasta 2025</strong>, donde promovió el desarrollo ético y sustentable del uso de la IA en educación. Su enfoque se centra en <strong>humanizar los ecosistemas educativos</strong> mediante el uso inteligente de tecnología, análisis de datos y machine learning.
                     </p>
-                    <p class="speaker-bio">
+<p class="speaker-bio">
                         Con más de 15 años de experiencia en investigación y consultoría, ha dirigido múltiples proyectos de investigación acreditados, publicado en revistas internacionales y desarrollado soluciones innovadoras de IA aplicadas a educación, incluyendo sistemas de alerta temprana de abandono estudiantil y herramientas de análisis de datos educativos.
                     </p>
-
-                    <div class="speaker-highlights">
-                        <div class="highlight-card">
-                            <h4>Especialización</h4>
-                            <ul>
-                                <li>Inteligencia Artificial en Educación</li>
-                                <li>Análisis de Datos Educativos</li>
-                                <li>Didáctica de la Matemática</li>
-                                <li>Educación STEAM</li>
-                            </ul>
-                        </div>
-
-                        <div class="highlight-card">
-                            <h4>Cargos Actuales</h4>
-                            <ul>
-                                <li>Profesor UBA (IA)</li>
-                                <li>Profesor Investigador UNRN</li>
-                                <li>Ex Director Nacional SAIA Educación (2023-2025)</li>
-                                <li>Consultor en IA y Datos</li>
-                                <li><a href="https://www.linkedin.com/in/dr-pablo-carranza/" target="_blank">Ver perfil LinkedIn →</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="highlight-card">
-                            <h4>Formación</h4>
-                            <ul>
-                                <li>Doctor (Université Denis Diderot, París)</li>
-                                <li>Master en Didáctica (París)</li>
-                                <li>Profesor de Matemática (UNCo)</li>
-                                <li>244 citaciones académicas</li>
-                            </ul>
-                        </div>
-
-                        <div class="highlight-card">
-                            <h4>Publicaciones Destacadas</h4>
-                            <ul>
-                                <li><a href="https://link.springer.com/book/10.1007/978-3-031-14553-7" target="_blank">Programas de modelación matemática en América Latina</a> (Springer, 2022)</li>
-                                <li><a href="https://www.gedisa.com/libro/la-modelacion-en-la-vida-de-la-gente/" target="_blank">La modelación en la vida de la Gente</a> (Gedisa)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Audience Section -->
-    <section class="audience-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">¿A quién está dirigido?</h2>
-                <p class="section-subtitle">Este webinar está especialmente diseñado para diversos perfiles educativos interesados en la integración de IA</p>
-            </div>
-
-            <div class="audience-grid">
-                <div class="audience-card">
-                    <div class="audience-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L3 7V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V7L12 2Z" fill="#3b82f6"/>
-                            <path d="M12 11C13.1 11 14 10.1 14 9C14 7.9 13.1 7 12 7C10.9 7 10 7.9 10 9C10 10.1 10.9 11 12 11ZM12 13C10 13 8 14 8 15V16H16V15C16 14 14 13 12 13Z" fill="white"/>
-                        </svg>
-                    </div>
-                    <h3>Participantes de la Diplomatura</h3>
-                    <p>Estudiantes actuales de la Diplomatura en IA y Práctica Docente de la Universidad de Mendoza</p>
-                </div>
-
-                <div class="audience-card">
-                    <div class="audience-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2Z" fill="#10b981"/>
-                            <circle cx="12" cy="9" r="2.5" fill="white"/>
-                        </svg>
-                    </div>
-                    <h3>Comunidad UM</h3>
-                    <p>Docentes, investigadores y estudiantes de la Universidad de Mendoza</p>
-                </div>
-
-                <div class="audience-card">
-                    <div class="audience-icon">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3Z" fill="#f59e0b"/>
-                            <path d="M12 7C10.9 7 10 7.9 10 9C10 10.1 10.9 11 12 11C13.1 11 14 10.1 14 9C14 7.9 13.1 7 12 7Z" fill="white"/>
-                            <path d="M16 17H8V16C8 14.67 10.67 14 12 14C13.33 14 16 14.67 16 16V17Z" fill="white"/>
-                        </svg>
-                    </div>
-                    <h3>Educadores en General</h3>
-                    <p>Docentes de todos los niveles educativos interesados en IA y educación</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Diplomatura Section -->
-    <section id="diplomatura" class="diplomatura-section">
-        <div class="container">
-            <h2 class="section-title">Diplomatura en IA y Práctica Docente</h2>
-            
-            <div class="diplomatura-content">
-                <p class="section-subtitle">
+<div class="speaker-highlights">
+<div class="highlight-card">
+<h4><span aria-hidden="true" class="card-icon"><svg class="icon" height="18" viewbox="0 0 24 24" width="18"><use href="#i-award"></use></svg></span><span class="card-title">Especialización</span></h4>
+<ul>
+<li>Inteligencia Artificial en Educación</li>
+<li>Análisis de Datos Educativos</li>
+<li>Didáctica de la Matemática</li>
+<li>Educación STEAM</li>
+</ul>
+</div>
+<div class="highlight-card">
+<h4><span aria-hidden="true" class="card-icon"><svg class="icon" height="18" viewbox="0 0 24 24" width="18"><use href="#i-users"></use></svg></span><span class="card-title">Cargos Actuales</span></h4>
+<ul>
+<li>Profesor UBA (IA)</li>
+<li>Profesor Investigador UNRN</li>
+<li>Ex Director Nacional SAIA Educación (2023-2025)</li>
+<li>Consultor en IA y Datos</li>
+<li><a href="https://www.linkedin.com/in/dr-pablo-carranza/" target="_blank">Ver perfil LinkedIn →</a></li>
+</ul>
+</div>
+<div class="highlight-card">
+<h4><span aria-hidden="true" class="card-icon"><svg class="icon" height="18" viewbox="0 0 24 24" width="18"><use href="#i-book"></use></svg></span><span class="card-title">Formación</span></h4>
+<ul>
+<li>Doctor (Université Denis Diderot, París)</li>
+<li>Master en Didáctica (París)</li>
+<li>Profesor de Matemática (UNCo)</li>
+<li>244 citaciones académicas</li>
+</ul>
+</div>
+<div class="highlight-card">
+<h4><span aria-hidden="true" class="card-icon"><svg class="icon" height="18" viewbox="0 0 24 24" width="18"><use href="#i-book"></use></svg></span><span class="card-title">Publicaciones Destacadas</span></h4>
+<ul>
+<li><a href="https://link.springer.com/book/10.1007/978-3-031-14553-7" target="_blank">Programas de modelación matemática en América Latina</a> (Springer, 2022)</li>
+<li><a href="https://www.gedisa.com/libro/la-modelacion-en-la-vida-de-la-gente/" target="_blank">La modelación en la vida de la Gente</a> (Gedisa)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Audience Section -->
+<section class="audience-section">
+<div class="container">
+<div class="section-header">
+<h2 class="section-title">¿A quién está dirigido?</h2>
+<p class="section-subtitle">Este webinar está especialmente diseñado para diversos perfiles educativos interesados en la integración de IA</p>
+</div>
+<div class="audience-grid">
+<div class="audience-card">
+<div class="audience-icon">
+<svg fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L3 7V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V7L12 2Z" fill="#3b82f6"></path>
+<path d="M12 11C13.1 11 14 10.1 14 9C14 7.9 13.1 7 12 7C10.9 7 10 7.9 10 9C10 10.1 10.9 11 12 11ZM12 13C10 13 8 14 8 15V16H16V15C16 14 14 13 12 13Z" fill="white"></path>
+</svg>
+</div>
+<h3>Participantes de la Diplomatura</h3>
+<p>Estudiantes actuales de la Diplomatura en IA y Práctica Docente de la Universidad de Mendoza</p>
+</div>
+<div class="audience-card">
+<div class="audience-icon">
+<svg fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2Z" fill="#10b981"></path>
+<circle cx="12" cy="9" fill="white" r="2.5"></circle>
+</svg>
+</div>
+<h3>Comunidad UM</h3>
+<p>Docentes, investigadores y estudiantes de la Universidad de Mendoza</p>
+</div>
+<div class="audience-card">
+<div class="audience-icon">
+<svg fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3Z" fill="#f59e0b"></path>
+<path d="M12 7C10.9 7 10 7.9 10 9C10 10.1 10.9 11 12 11C13.1 11 14 10.1 14 9C14 7.9 13.1 7 12 7Z" fill="white"></path>
+<path d="M16 17H8V16C8 14.67 10.67 14 12 14C13.33 14 16 14.67 16 16V17Z" fill="white"></path>
+</svg>
+</div>
+<h3>Educadores en General</h3>
+<p>Docentes de todos los niveles educativos interesados en IA y educación</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Diplomatura Section -->
+<section class="diplomatura-section" id="diplomatura">
+<div class="container">
+<h2 class="section-title">Diplomatura en IA y Práctica Docente</h2>
+<div class="diplomatura-content">
+<p class="section-subtitle">
                     Este webinar forma parte de la <strong>Diplomatura Superior Universitaria en Inteligencia Artificial y Práctica Docente</strong> de la Universidad de Mendoza.
                 </p>
-                <p class="section-subtitle">
+<p class="section-subtitle">
                     La diplomatura ofrece una formación integral en el uso pedagógico de la inteligencia artificial, combinando teoría y práctica para transformar la enseñanza. A través de encuentros con expertos nacionales e internacionales, los participantes desarrollan competencias para integrar la IA de manera ética, crítica y humanizadora en sus contextos educativos.
                 </p>
-            </div>
-
-            <div class="cta-buttons">
-                <a href="https://um.edu.ar/diplomatura-ia" target="_blank" class="btn btn-primary">
-                    📘 Más Información sobre la Diplomatura
-                </a>
-                <a href="mailto:diploIA@um.edu.ar" class="btn btn-secondary">
-                    📧 Consultas: diploIA@um.edu.ar
-                </a>
-            </div>
-
-
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Contacto</h3>
-                    <a href="mailto:diploIA@um.edu.ar">diploIA@um.edu.ar</a>
-                    <p>Universidad de Mendoza</p>
-                    <p>Posgrado y Formación Continua</p>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Enlaces</h3>
-                    <a href="https://form.jotform.com/260326441142042" target="_blank">Inscripción al Webinar</a>
-                    <a href="https://bit.ly/diploIA" target="_blank">Acceso al Meet</a>
-                    <a href="https://um.edu.ar/diplomatura-ia" target="_blank">Diplomatura en IA</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Sobre el Ponente</h3>
-                    <a href="https://www.linkedin.com/in/dr-pablo-carranza/" target="_blank">LinkedIn Dr. Carranza</a>
-                    <a href="https://link.springer.com/book/10.1007/978-3-031-14553-7" target="_blank">Publicación Springer</a>
-                    <a href="https://www.gedisa.com/libro/la-modelacion-en-la-vida-de-la-gente/" target="_blank">Libro Gedisa</a>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Universidad de Mendoza - Diplomatura en IA y Práctica Docente</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
+</div>
+<div class="cta-buttons">
+<a class="btn btn-primary" href="https://um.edu.ar/diplomatura-ia" target="_blank"><svg aria-hidden="true" class="icon" height="18" viewbox="0 0 24 24" width="18"><use href="#i-book"></use></svg>Más información sobre la Diplomatura</a>
+<a class="btn btn-secondary" href="mailto:diploIA@um.edu.ar"><svg aria-hidden="true" class="icon" height="18" viewbox="0 0 24 24" width="18"><use href="#i-mail"></use></svg>Consultas: diploIA@um.edu.ar</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer>
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h3>Contacto</h3>
+<a href="mailto:diploIA@um.edu.ar">diploIA@um.edu.ar</a>
+<p><a href="https://um.edu.ar/" rel="noopener" target="_blank">Universidad de Mendoza</a></p>
+<p><a href="https://um.edu.ar/posgrados-formacion-continua/programas-academicos/" rel="noopener" target="_blank">Posgrado y Formación Continua</a></p>
+</div>
+<div class="footer-section">
+<h3>Enlaces</h3>
+<a href="https://form.jotform.com/260326441142042" target="_blank">Inscripción al Webinar</a>
+<a href="https://bit.ly/diploIA" target="_blank">Acceso al Meet</a>
+<a href="https://um.edu.ar/diplomatura-ia" target="_blank">Diplomatura en IA</a>
+</div>
+<div class="footer-section">
+<h3>Sobre el Ponente</h3>
+<a href="https://www.linkedin.com/in/dr-pablo-carranza/" target="_blank">LinkedIn Dr. Carranza</a>
+<a href="https://link.springer.com/book/10.1007/978-3-031-14553-7" target="_blank">Publicación Springer</a>
+<a href="https://www.gedisa.com/libro/la-modelacion-en-la-vida-de-la-gente/" target="_blank">Libro Gedisa</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Universidad de Mendoza - Diplomatura en IA y Práctica Docente</p>
+</div>
+</div>
+</footer>
+<script>
         // Countdown Timer
         function updateCountdown() {
             const eventDate = new Date('2026-03-02T19:00:00-03:00').getTime();
